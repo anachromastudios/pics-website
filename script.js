@@ -1,69 +1,96 @@
-// Filter Toggle Functionality
+// Filter Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const filterHeaders = document.querySelectorAll('.filter-header');
-    
-    filterHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            const filterContent = this.nextElementSibling;
-            const arrow = this.querySelector('.arrow');
-            
-            // Toggle visibility
-            if (filterContent.style.display === 'none') {
-                filterContent.style.display = 'flex';
-                arrow.textContent = '▼';
-            } else {
-                filterContent.style.display = 'none';
-                arrow.textContent = '▶';
+    // Filter Toggle Button (Mobile)
+    const filterToggle = document.getElementById('filterToggle');
+    const filterContainer = document.getElementById('filterContainer');
+
+    if (filterToggle) {
+        filterToggle.addEventListener('click', function() {
+            filterContainer.classList.toggle('active');
+        });
+    }
+
+    // Close filter panel when clicking on a checkbox (mobile)
+    const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
+    filterCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            // Close filter panel on mobile after selection
+            if (window.innerWidth <= 768 && filterContainer.classList.contains('active')) {
+                filterContainer.classList.remove('active');
             }
         });
     });
+
+    // Cart Modal Functionality
+    const cartBtn = document.getElementById('cartBtn');
+    const cartModal = document.getElementById('cartModal');
+    const closeBtn = document.querySelector('.close');
+
+    if (cartBtn) {
+        cartBtn.addEventListener('click', function() {
+            cartModal.style.display = 'block';
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            cartModal.style.display = 'none';
+        });
+    }
+
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+        if (event.target === cartModal) {
+            cartModal.style.display = 'none';
+        }
+    });
+
+    // Filter Functionality
+    const imageSets = document.querySelectorAll('.image-set');
+
+    // Apply filters when checkboxes change
+    filterCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', applyFilters);
+    });
+
+    function applyFilters() {
+        // Get all checked filter values
+        const checkedFilters = Array.from(filterCheckboxes)
+            .filter(cb => cb.checked)
+            .map(cb => cb.value);
+
+        // Show/hide image sets based on filters
+        imageSets.forEach(imageSet => {
+            const imageFilters = imageSet.getAttribute('data-filter');
+            
+            // If no filters are checked, show all
+            if (checkedFilters.length === 0) {
+                imageSet.style.display = 'flex';
+                return;
+            }
+
+            // Check if any of the image's filters match the checked filters
+            if (imageFilters) {
+                const imageFilterArray = imageFilters.split(' ');
+                const hasMatch = checkedFilters.some(filter => imageFilterArray.includes(filter));
+                
+                imageSet.style.display = hasMatch ? 'flex' : 'none';
+            } else {
+                // Hide images without filter data when filters are active
+                imageSet.style.display = 'none';
+            }
+        });
+    }
 
     // Product card click handlers
     const productCards = document.querySelectorAll('.product-card');
     
     productCards.forEach(card => {
         card.addEventListener('click', function() {
-            console.log('Product clicked:', this.querySelector('.product-title').textContent);
+            console.log('Product clicked');
             // Add your product detail page navigation here
         });
     });
-
-    // Filter checkbox handlers
-    const filterCheckboxes = document.querySelectorAll('.filter-content input[type="checkbox"]');
-    
-    filterCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            console.log('Filter changed:', this.parentElement.textContent.trim(), this.checked);
-            // Add your filtering logic here
-            applyFilters();
-        });
-    });
-
-    // Simple filter application function
-    function applyFilters() {
-        // Get all checked filters
-        const checkedFilters = Array.from(filterCheckboxes)
-            .filter(cb => cb.checked)
-            .map(cb => cb.parentElement.textContent.trim());
-        
-        console.log('Active filters:', checkedFilters);
-        
-        // Here you would implement your actual filtering logic
-        // This is just a placeholder for demonstration
-        if (checkedFilters.length === 0) {
-            // Show all products
-            productCards.forEach(card => {
-                card.style.display = 'block';
-            });
-        } else {
-            // Apply filters (you would need to add data attributes to products)
-            // This is a simplified example
-            productCards.forEach(card => {
-                // Implement your filtering logic here
-                card.style.display = 'block';
-            });
-        }
-    }
 
     // Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -84,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function addToCart(productId) {
     console.log('Adding product to cart:', productId);
     // Implement your cart logic here
-    alert('Product added to cart!');
 }
 
 // Quick view functionality (placeholder)

@@ -7,261 +7,317 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Order Now</h2>
+            <p>Currently selling on <strong>TikTok Shop</strong></p>
+            <p>Visit our TikTok Shop to browse and purchase our wildlife & nature photography prints.</p>
+            <a href="https://www.tiktok.com/@anachromastudios" target="_blank" class="btn-shop">Visit TikTok Shop</a>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <img src="./logo.jpeg" alt="Ana Chroma Studios Logo">
+                <img src="./logo.jpeg">
             </a>
-            <p class="navbar-subtitle">Wildlife & Nature Photography</p>
+            <div class="navbar-text">
+                <h1 class="navbar-title">Ana Chroma Studios</h1>
+                <p class="navbar-subtitle">Wildlife & Nature Photography Prints</p>
+            </div>
             <div class="nav-actions">
-                <button class="btn-icon">🛒</button>
+                <button class="btn-icon" id="cartBtn">🛒</button>
             </div>
         </div>
     </nav>
 
+    <!-- Info Banner -->
+    <div class="info-banner">
+        <p>Prints are available in two sizes — 5"x7" and 8.5"x11". Click the cart icon to order your favorite.</p>
+    </div>
+
     <!-- Main Content -->
     <main class="main-content">
+        <!-- Filter Toggle Button (Mobile) -->
+        <button id="filterToggle" class="filter-toggle">☰ Filters</button>
+        
+        <!-- Filter Sidebar -->
+        <div class="filter-container" id="filterContainer">
+            <div class="filter-section">
+                <h3>Filter</h3>
+                <div class="filter-group">
+                    <label>
+                        <input type="checkbox" value="abstract" class="filter-checkbox">
+                        <span>Abstract</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="animal" class="filter-checkbox">
+                        <span>Animal</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="bird" class="filter-checkbox">
+                        <span>Bird</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="black-white" class="filter-checkbox">
+                        <span>Black and White</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="blue-sky" class="filter-checkbox">
+                        <span>Blue Sky</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="collector-edition" class="filter-checkbox">
+                        <span>Collector Edition</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="cute" class="filter-checkbox">
+                        <span>Cute</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="green-background" class="filter-checkbox">
+                        <span>Green Background</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="limited-edition" class="filter-checkbox">
+                        <span>Limited Edition</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
             <!-- Product Grid -->
             <section class="products-section">
                 <!-- Individual Image -->
-                <div class="image-set">
+                <div class="image-set" data-filter="animal cute">
                     <div class="set-description">
-                        <h2>Kalalau Valley</h2>
-                        <p>Vibrant rainbow over the dramatic Hawaiian coastline</p>
+                        <h2>"Nap Queen" – Lioness Photography Print</h2>
                     </div>
                     <div class="image-row individual">
                         <div class="product-card">
-                            <img src="./thumbnail/individuals/NL5A1232.jpg" alt="Kalalau Rainbow" loading="lazy">
+                            <img src="./thumbnail/individuals/NL5A1232.jpg" loading="lazy">
                         </div>
                     </div>
                 </div>
 
                 <!-- Set 1 -->
-                <div class="image-set">
+                <div class="image-set" data-filter="animal black-white cute">
                     <div class="set-description">
-                        <h2>London Perspectives</h2>
-                        <p>Iconic British landmarks captured in vertical compositions</p>
+                        <h2>Giraffe Photography Print</h2>
                     </div>
                     <div class="image-row set">
                         <div class="product-card vertical">
-                            <img src="./thumbnail/sets/s1/NL5A1133.jpg" alt="Big Ben" loading="lazy">
+                            <img src="./thumbnail/sets/s1/NL5A1133.jpg" loading="lazy">
                         </div>
                         <div class="product-card vertical">
-                            <img src="./thumbnail/sets/s1/NL5A1147.jpg" alt="Tree Tunnel" loading="lazy">
+                            <img src="./thumbnail/sets/s1/NL5A1147.jpg" loading="lazy">
                         </div>
                     </div>
                 </div>
 
                 <!-- Set 2 -->
-                <div class="image-set">
+                <div class="image-set" data-filter="animal black-white collector-edition">
                     <div class="set-description">
-                        <h2>Mediterranean Moments</h2>
-                        <p>Warm golden light and vibrant colors from the Greek islands</p>
+                        <h2>"The Mighty Tiger" – Black & White Photography Print</h2>
                     </div>
                     <div class="image-row set">
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s2/NL5A1247.jpg" alt="Birds in Flight" loading="lazy">
+                            <img src="./thumbnail/sets/s2/NL5A1247.jpg" loading="lazy">
                         </div>
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s2/NL5A1248.jpg" alt="Santorini Sunrise" loading="lazy">
+                            <img src="./thumbnail/sets/s2/NL5A1248.jpg" loading="lazy">
                         </div>
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s2/NL5A1251.jpg" alt="Blue Door" loading="lazy">
+                            <img src="./thumbnail/sets/s2/NL5A1251.jpg" loading="lazy">
                         </div>
                     </div>
                 </div>
 
                 <!-- Set 3 -->
-                <div class="image-set">
+                <div class="image-set" data-filter="bird blue-sky collector-edition limited-edition">
                     <div class="set-description">
-                        <h2>European Landmarks</h2>
-                        <p>Architectural masterpieces from the world's most beautiful cities</p>
+                        <h2>"Sky Lords: Turkey Vulture Collector’s Set" – Limited Edition</h2>
                     </div>
                     <div class="image-row set">
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s3/NL5A4567.jpg" alt="Black Church" loading="lazy">
+                            <img src="./thumbnail/sets/s3/NL5A4567.jpg" loading="lazy">
                         </div>
                         <div class="product-card vertical">
-                            <img src="./thumbnail/sets/s3/NL5A4565.jpg" alt="Manhattan at Dusk" loading="lazy">
+                            <img src="./thumbnail/sets/s3/NL5A4565.jpg" loading="lazy">
                         </div>
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s3/NL5A4610.jpg" alt="Eiffel Tower" loading="lazy">
+                            <img src="./thumbnail/sets/s3/NL5A4610.jpg" loading="lazy">
                         </div>
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s3/NL5A4628.jpg" alt="Grand Canal" loading="lazy">
+                            <img src="./thumbnail/sets/s3/NL5A4628.jpg" loading="lazy">
                         </div>
                     </div>
                 </div>
 
                 <!-- Set 4 -->
-                <div class="image-set">
+                <div class="image-set" data-filter="bird green-background collector-edition limited-edition">
                     <div class="set-description">
-                        <h2>Ancient Wonders</h2>
-                        <p>Timeless structures that have stood the test of centuries</p>
+                        <h2>"Wings in the Green: Turkey Vulture Collector’s Set" – Limited Edition</h2>
                     </div>
                     <div class="image-row set">
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s4/NL5A4661.jpg" alt="Colosseum" loading="lazy">
+                            <img src="./thumbnail/sets/s4/NL5A4661.jpg" loading="lazy">
                         </div>
                         <div class="product-card vertical">
-                            <img src="./thumbnail/sets/s4/NL5A4649.jpg" alt="Golden Hour" loading="lazy">
+                            <img src="./thumbnail/sets/s4/NL5A4649.jpg" loading="lazy">
                         </div>
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s4/NL5A4678.jpg" alt="Ancient Architecture" loading="lazy">
+                            <img src="./thumbnail/sets/s4/NL5A4678.jpg" loading="lazy">
                         </div>
                     </div>
                 </div>
 
                 <!-- Set 5 -->
-                <div class="image-set">
+                <div class="image-set" data-filter="bird collector-edition">
                     <div class="set-description">
-                        <h2>Natural Landscapes</h2>
-                        <p>Breathtaking views from pristine natural settings</p>
+                        <h2>"Curious Hawk: Winter Watcher Collector’s Set"</h2>
                     </div>
                     <div class="image-row set">
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s5/NL5A6207.jpg" alt="Scenic Vista" loading="lazy">
+                            <img src="./thumbnail/sets/s5/NL5A6207.jpg" loading="lazy">
                         </div>
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s5/NL5A6209.jpg" alt="Natural Beauty" loading="lazy">
+                            <img src="./thumbnail/sets/s5/NL5A6209.jpg" loading="lazy">
                         </div>
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s5/NL5A6211.jpg" alt="Landscape" loading="lazy">
+                            <img src="./thumbnail/sets/s5/NL5A6211.jpg" loading="lazy">
                         </div>
                     </div>
                 </div>
 
                 <!-- Set 6 -->
-                <div class="image-set">
+                <div class="image-set" data-filter="bird cute green-background">
                     <div class="set-description">
-                        <h2>Urban Life</h2>
-                        <p>Stories from the streets and rhythm of city living</p>
+                        <h2>"Black-necked Stilt Reflection Set" – Wildlife Photography Gift Edition</h2>
                     </div>
                     <div class="image-row set">
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s6/NL5A8683.jpg" alt="Urban Scene" loading="lazy">
+                            <img src="./thumbnail/sets/s6/NL5A8683.jpg" loading="lazy">
                         </div>
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s6/NL5A8684.jpg" alt="City Life" loading="lazy">
+                            <img src="./thumbnail/sets/s6/NL5A8684.jpg" loading="lazy">
                         </div>
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s6/NL5A8687.jpg" alt="Metropolitan" loading="lazy">
+                            <img src="./thumbnail/sets/s6/NL5A8687.jpg" loading="lazy">
                         </div>
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s6/NL5A8690.jpg" alt="Street View" loading="lazy">
+                            <img src="./thumbnail/sets/s6/NL5A8690.jpg" loading="lazy">
                         </div>
                         <div class="product-card horizontal">
-                            <img src="./thumbnail/sets/s6/NL5A8691.jpg" alt="Urban Perspective" loading="lazy">
+                            <img src="./thumbnail/sets/s6/NL5A8691.jpg" loading="lazy">
                         </div>
                     </div>
                 </div>
 
                 <!-- Individual Images -->
-                <div class="image-set">
+                <div class="image-set" data-filter="abstract bird">
                     <div class="set-description">
-                        <h2>Plumage Portrait</h2>
-                        <p>Intricate details of feathers and form</p>
+                        <h2>"Vermilion Flycatcher: Pebble Perch" – Vibrant Wildlife Photography Print</h2>
                     </div>
                     <div class="image-row individual">
                         <div class="product-card">
-                            <img src="./thumbnail/individuals/NL5A7748.jpg" alt="Plumage Portrait" loading="lazy">
+                            <img src="./thumbnail/individuals/NL5A7748.jpg" loading="lazy">
                         </div>
                     </div>
                 </div>
 
-                <div class="image-set">
+                <div class="image-set" data-filter="bird cute">
                     <div class="set-description">
-                        <h2>Natural Textures</h2>
-                        <p>Abstract patterns woven by nature</p>
+                        <h2>"Speckled Perch: Autumn Branches Bird Print" – Unique Gift Edition</h2>
                     </div>
                     <div class="image-row individual">
                         <div class="product-card">
-                            <img src="./thumbnail/individuals/NL5A7978.jpg" alt="Natural Textures" loading="lazy">
+                            <img src="./thumbnail/individuals/NL5A7978.jpg" loading="lazy">
                         </div>
                     </div>
                 </div>
 
-                <div class="image-set">
+                <div class="image-set" data-filter="bird blue-sky">
                     <div class="set-description">
-                        <h2>Wilderness Encounter</h2>
-                        <p>A glimpse into the untamed natural world</p>
+                        <h2>"Cactus Peek: Starling in the Desert" – Unique Wildlife Photography Print</h2>
                     </div>
                     <div class="image-row individual">
                         <div class="product-card">
-                            <img src="./thumbnail/individuals/NL5A8294.jpg" alt="Wilderness Encounter" loading="lazy">
+                            <img src="./thumbnail/individuals/NL5A8294.jpg" loading="lazy">
+                        </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="image-set">
+                <div class="image-set" data-filter="bird">
                     <div class="set-description">
-                        <h2>Bird in Focus</h2>
-                        <p>A striking portrait of avian life</p>
+                        <h2>"Thorns & Gold: Desert Songbird Print – Wildlife Photography Gift Edition</h2>
                     </div>
                     <div class="image-row individual">
                         <div class="product-card">
-                            <img src="./thumbnail/individuals/NL5A8401.jpg" alt="Bird in Focus" loading="lazy">
+                            <img src="./thumbnail/individuals/NL5A8401.jpg" loading="lazy">
+                        </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="image-set">
+                <div class="image-set" data-filter="abstract black-white">
                     <div class="set-description">
-                        <h2>Soaring High</h2>
-                        <p>Birds captured in their element, against the sky</p>
+                        <h2>"Thorn Study: Monochrome Desert Detail" – Fine Art Photography Print</h2>
                     </div>
                     <div class="image-row individual">
                         <div class="product-card">
-                            <img src="./thumbnail/individuals/NL5A8405.jpg" alt="Soaring High" loading="lazy">
+                            <img src="./thumbnail/individuals/NL5A8405.jpg" loading="lazy">
+                        </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="image-set">
+                <div class="image-set" data-filter="bird collector-edition">
                     <div class="set-description">
-                        <h2>Wildlife Moment</h2>
-                        <p>An intimate glimpse of nature's creatures</p>
+                        <h2>"Rust & Raptor: Hawk on Metal – Wildlife Photography Print</h2>
                     </div>
                     <div class="image-row individual">
                         <div class="product-card">
-                            <img src="./thumbnail/individuals/NL5A8470.jpg" alt="Wildlife Moment" loading="lazy">
+                            <img src="./thumbnail/individuals/NL5A8470.jpg" loading="lazy">
+                        </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="image-set">
+                <div class="image-set" data-filter="bird black-white">
                     <div class="set-description">
-                        <h2>Nature's Canvas</h2>
-                        <p>Abstract compositions inspired by the wild</p>
+                        <h2>"Monochrome Perch: Songbird in Stillness" – Fine Art Photography Print</h2>
                     </div>
                     <div class="image-row individual">
                         <div class="product-card">
-                            <img src="./thumbnail/individuals/NL5A8563.jpg" alt="Nature's Canvas" loading="lazy">
+                            <img src="./thumbnail/individuals/NL5A8563.jpg" loading="lazy">
+                        </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="image-set">
+                <div class="image-set" data-filter="bird blue-sky cute">
                     <div class="set-description">
-                        <h2>In Flight</h2>
-                        <p>The dynamic beauty of birds in motion</p>
+                        <h2>"Sky Flame: Vermilion Flycatcher Print" – Wildlife Photography Gift Edition</h2>
                     </div>
                     <div class="image-row individual">
                         <div class="product-card">
-                            <img src="./thumbnail/individuals/NL5A8638.jpg" alt="In Flight" loading="lazy">
+                            <img src="./thumbnail/individuals/NL5A8638.jpg" loading="lazy">
+                        </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="image-set">
+                <div class="image-set" data-filter="bird blue-sky">
                     <div class="set-description">
-                        <h2>Perched Majesty</h2>
-                        <p>A regal bird captured in stillness</p>
+                        <h2>"Egret Grace: Still Waters Wildlife Print" – Fine Art Photography Gift Edition</h2>
                     </div>
-                    <div class="image-row individual">
                         <div class="product-card">
-                            <img src="./thumbnail/individuals/NL5A8747.jpg" alt="Perched Majesty" loading="lazy">
+                            <img src="./thumbnail/individuals/NL5A8747.jpg" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -271,11 +327,11 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2025 Anachroma Photography</p>
+            <p>&copy; 2025 Ana Chroma Studios LLC</p>
             <div class="social-links">
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
-                <a href="#">Email</a>
+                <a href="https://www.instagram.com/anachromastudios/" target="_blank">Instagram</a>
+                <a href="https://www.tiktok.com/@anachromastudios" target="_blank">TikTok</a>
+                <a href="mailto:anachromastudios@gmail.com" target="_blank">Email</a>
             </div>
         </div>
     </footer>
